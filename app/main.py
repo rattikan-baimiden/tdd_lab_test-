@@ -21,6 +21,7 @@ def get_name(name: str = None):
 
 @app.post("/callname")
 def call_name():
-    return {"hello": {names}}
+    str name = "rattikan"
+    return {"hello": name}
 
 handler = Mangum(app)
