@@ -24,7 +24,7 @@ class Name(BaseModel):
     name: str
 
 @app.post("/callname")
-async def call_name(name: Name):
+def call_name(name: str = "rattikan"):
     return {"hello": {name}}
 
 handler = Mangum(app)
