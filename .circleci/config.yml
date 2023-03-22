@@ -49,22 +49,22 @@ jobs:
           aws-secret-access-key: AWS_SECRET_ACCESS_KEY
       - run:
           name: Upload to S3
-          command: aws s3 cp function.zip s3://tumpk/function.zip
+          command: aws s3 cp function.zip s3://rattikantest/function.zip
       - run:
           name: Deploy new Lambda
-          command: aws lambda update-function-code --function-name fastapi --s3-bucket tumpk --s3-key function.zip
+          command: aws lambda update-function-code --function-name fastapi --s3-bucket rattikantest --s3-key function.zip
 
 workflows:
   build-test-and-deploy:
     jobs:
       - build-and-test:
-          context: aws_lab10
+          context: aws_labtest
           filters:
             branches:
               only:
                 - main
       - deploy-dev:
-          context: aws_lab10
+          context: aws_labtest
           requires:
             - build-and-test
           filters:
