@@ -17,7 +17,7 @@ def read_name(name: str = None):
     return {"hello": name}
 
 @app.get("/callname/{name}")
-def read_name(name: str = None):
+def get_name(name: str = None):
     return {"hello": {name}}
 
 class Name(BaseModel):
