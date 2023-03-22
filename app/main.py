@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from mangum import Mangum
+from pydantic import BaseModel
 
 app = FastAPI()
 
@@ -18,6 +19,9 @@ def read_name(name: str = None):
 @app.get("/callname/{name}")
 def read_name(name: str = None):
     return {"hello": {name}}
+
+class Name(BaseModel):
+    name: str
 
 @app.post("/callname")
 async def call_name(name: Name):
