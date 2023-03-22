@@ -25,6 +25,6 @@ class Name(BaseModel):
 
 @app.post("/callname")
 async def call_name(name: Name):
-    return name
+    return {“hello”: {name}}
 
 handler = Mangum(app)
