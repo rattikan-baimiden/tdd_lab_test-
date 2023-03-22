@@ -1,6 +1,5 @@
 from fastapi import FastAPI
 from mangum import Mangum
-name = None
 
 app = FastAPI()
 
@@ -18,8 +17,6 @@ def read_name(name: str = None):
 
 @app.get("/callname/{name}")
 def get_name(name: str = None):
-    global names
-    names = name
     return {"hello": {name}}
 
 @app.post("/callname")
