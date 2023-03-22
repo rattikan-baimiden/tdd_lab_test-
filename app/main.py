@@ -21,10 +21,10 @@ def read_name(name: str = None):
     return {"hello": {name}}
 
 class Name(BaseModel):
-    name: str
+    name = "rattikan"
 
 @app.post("/callname")
-def call_name(name: str = "rattikan"):
+def call_name(name: Name):
     return {"hello": {name}}
 
 handler = Mangum(app)
